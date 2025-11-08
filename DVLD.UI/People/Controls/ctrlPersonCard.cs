@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD.Business;
-using System.Runtime.CompilerServices;
 using DVLD.UI.Properties;
 using System.IO;
 
-namespace DVLD.UI.Controls
+namespace DVLD.UI.People.Controls
 {
     public partial class ctrlPersonCard: UserControl
     {
