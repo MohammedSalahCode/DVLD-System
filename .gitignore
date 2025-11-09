@@ -92,6 +92,9 @@ coverage*.info
 # Ignore auto-generated Windows Forms designer files
 *.Designer.cs
 
+# Ignore resource files temporarily
+*.resx
+
 ## ===============================
 ##  End of file
 ## ===============================
