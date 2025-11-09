@@ -144,8 +144,8 @@ namespace DVLD.Business
 
             if (IsFound)
 
-                return new clsPerson(PersonID, FirstName, SecondName, ThirdName, LastName,
-                          NationalNo, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
+                return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,
+                    DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
             else
                 return null;
         }

@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD.Classes;
+using DVLD.UI.User;
 
 namespace DVLD.UI
 {
     public partial class frmMain: Form
     {
-        public frmMain()
+        frmLogin _frmLogin;
+        public frmMain(frmLogin frm)
         {
             InitializeComponent();
+            _frmLogin = frm;
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -23,5 +27,31 @@ namespace DVLD.UI
 
             frm.ShowDialog();
         }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmUsers();
+            frm.ShowDialog();
+        }
+
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm = new frmUserInfo(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsGlobal.CurrentUser = null;
+            _frmLogin.Show();
+            this.Close();
+        }
+
     }
 }
