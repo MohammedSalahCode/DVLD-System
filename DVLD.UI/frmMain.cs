@@ -53,5 +53,10 @@ namespace DVLD.UI
             this.Close();
         }
 
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.ShowDialog();
+        }
     }
 }

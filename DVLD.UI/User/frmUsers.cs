@@ -19,7 +19,7 @@ namespace DVLD.UI.User
         {
             InitializeComponent();
         }
-        // done
+
         private void frmUsers_Load(object sender, EventArgs e)
         {
             _dtAllUsers = clsUser.GetAllUsers();
@@ -47,35 +47,35 @@ namespace DVLD.UI.User
                 dgvUsers.Columns[4].Width = 80;
             }
         }
-        // done
+
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             frmAddUpdateUser Frm1 = new frmAddUpdateUser();
             Frm1.ShowDialog();
             frmUsers_Load(null, null);
         }
-        //
+
         private void addNewUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdateUser Frm1 = new frmAddUpdateUser();
             Frm1.ShowDialog();
             frmUsers_Load(null, null);
         }
-        //
+
         private void editUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdateUser Frm1 = new frmAddUpdateUser((int)dgvUsers.CurrentRow.Cells[0].Value);
             Frm1.ShowDialog();
             frmUsers_Load(null, null);
         }
-        //
+
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUserInfo Frm1 = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
             Frm1.ShowDialog();
 
         }
-        //
+
         private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
@@ -95,7 +95,7 @@ namespace DVLD.UI.User
             }
 
         }
-        //
+
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
@@ -105,7 +105,6 @@ namespace DVLD.UI.User
             frm.ShowDialog();
         }
 
-        //done
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
             textFilterValue.Visible = (cbFilterBy.Text != "None");
@@ -121,7 +120,7 @@ namespace DVLD.UI.User
                 textFilterValue.Focus();
             }
         }
-        //
+
         private void textFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             //we allow number incase person id or user id is selected.
@@ -129,7 +128,6 @@ namespace DVLD.UI.User
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
-        //done
         private void textFilterValue_TextChanged(object sender, EventArgs e)
         {
             string filterColumn = "";
@@ -161,7 +159,7 @@ namespace DVLD.UI.User
 
             lblRecordsCount.Text = _dtAllUsers.DefaultView.Count.ToString();
         }
-        //done
+
         private void cbIaActive_SelectedIndexChanged(object sender, EventArgs e)
         {
             string filterColumn = "IsActive";
@@ -188,7 +186,7 @@ namespace DVLD.UI.User
 
             lblRecordsCount.Text = _dtAllUsers.DefaultView.Count.ToString();
         }
-        //
+
         private void dgvUsers_CellDoubleClick(object sender, EventArgs e)
         {
             frmUserInfo Frm1 = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
