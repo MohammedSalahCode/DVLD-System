@@ -1,5 +1,4 @@
 ﻿using DVLD.Business;
-using DVLD.UI.ApplicationTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD.UI
+namespace DVLD.UI.Applications
 {
     public partial class frmManageApplicationTypes: Form
     {

@@ -1,0 +1,194 @@
+﻿using DVLD.Business;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DVLD.UI.Applications
+{
+    public partial class frmListLocalDrivingLicesnseApplications: Form
+    {
+        private static DataTable _dtAllLocalDrivingLicenseApplications;
+
+        public frmListLocalDrivingLicesnseApplications()
+        {
+            InitializeComponent();
+        }
+
+        private void frmListLocalDrivingLicesnseApplications_Load(object sender, EventArgs e)
+        {
+            _dtAllLocalDrivingLicenseApplications = clsLocalDrivingLicenseApplication.GetAllLocalDrivingLicenseApplications();
+
+            dgvLocalDrivingLicenseApplications.DataSource = _dtAllLocalDrivingLicenseApplications;
+
+            cbFilterBy.SelectedIndex = 0;
+            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+
+
+            if (dgvLocalDrivingLicenseApplications.Rows.Count > 0)
+            {
+                dgvLocalDrivingLicenseApplications.Columns[0].HeaderText = "L.D.L.AppID";
+                dgvLocalDrivingLicenseApplications.Columns[0].Width = 85;
+
+                dgvLocalDrivingLicenseApplications.Columns[1].HeaderText = "Driving Class";
+                dgvLocalDrivingLicenseApplications.Columns[1].Width = 250;
+
+                dgvLocalDrivingLicenseApplications.Columns[2].HeaderText = "National No.";
+                dgvLocalDrivingLicenseApplications.Columns[2].Width = 85;
+
+                dgvLocalDrivingLicenseApplications.Columns[3].HeaderText = "Full Name";
+                dgvLocalDrivingLicenseApplications.Columns[3].Width = 250;
+
+                dgvLocalDrivingLicenseApplications.Columns[4].HeaderText = "Application Date";
+                dgvLocalDrivingLicenseApplications.Columns[4].Width = 150;
+
+                dgvLocalDrivingLicenseApplications.Columns[5].HeaderText = "Passed Tests";
+                dgvLocalDrivingLicenseApplications.Columns[5].Width = 80;
+
+                dgvLocalDrivingLicenseApplications.Columns[6].HeaderText = "Status";
+                dgvLocalDrivingLicenseApplications.Columns[6].Width = 80;
+            }
+        }
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textFilterValue.Visible = (cbFilterBy.Text != "None");
+
+            if (textFilterValue.Visible)
+            {
+                textFilterValue.Text = "";
+                textFilterValue.Focus();
+            }
+
+            _dtAllLocalDrivingLicenseApplications.DefaultView.RowFilter = "";
+            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+
+        }
+
+        private void textFilterValue_TextChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "";
+
+            //Map Selected Filter to real Column name 
+            switch (cbFilterBy.Text)
+            {
+                case "L.D.L.AppID": FilterColumn = "LocalDrivingLicenseApplicationID"; break;
+                case "National No.": FilterColumn = "NationalNo"; break;
+                case "Full Name": FilterColumn = "FullName"; break;
+                case "Status": FilterColumn = "Status"; break;
+                default: FilterColumn = "None"; break;
+            }
+
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (string.IsNullOrWhiteSpace(textFilterValue.Text) || FilterColumn == "None")
+            {
+                _dtAllLocalDrivingLicenseApplications.DefaultView.RowFilter = "";
+                lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+                return;
+            }
+
+            // Apply filter based on selected column type
+            if (FilterColumn == "LocalDrivingLicenseApplicationID")
+                _dtAllLocalDrivingLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, textFilterValue.Text.Trim());
+            else
+                _dtAllLocalDrivingLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, textFilterValue.Text.Trim());
+
+            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+
+        }
+
+        private void textFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //we allow number incase L.D.L.AppID id is selected.
+            if (cbFilterBy.Text == "L.D.L.AppID")
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void btnAddNewApplication_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateLocalDrivingLicenseApplication frm = new frmAddUpdateLocalDrivingLicenseApplication();
+            frm.ShowDialog();
+            //refresh
+            frmListLocalDrivingLicesnseApplications_Load(null, null);
+
+        }
+
+        private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLocalDrivingLicenseApplicationInfo frm =
+                        new frmLocalDrivingLicenseApplicationInfo((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID =
+                (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            frmAddUpdateLocalDrivingLicenseApplication frm =
+                new frmAddUpdateLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
+
+            frm.ShowDialog();
+
+            // Refresh the list after closing the edit form
+            frmListLocalDrivingLicesnseApplications_Load(null, null);
+        }
+
+        private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure do want to cancel this application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+
+            if (LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Cancel())
+                {
+                    MessageBox.Show("Application Cancelled Successfully.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //refresh the form again.
+                    frmListLocalDrivingLicesnseApplications_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show("Could not cancel applicatoin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure do want to delete this application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+
+            if (LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Delete())
+                {
+                    MessageBox.Show("Application Deleted Successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //refresh
+                    frmListLocalDrivingLicesnseApplications_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show("Could not delete applicatoin, other data depends on it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+    }
+}

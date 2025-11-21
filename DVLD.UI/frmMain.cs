@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DVLD.Classes;
 using DVLD.UI.Tests;
 using DVLD.UI.User;
+using DVLD.UI.Applications;
+
 
 namespace DVLD.UI
 {
@@ -63,6 +65,18 @@ namespace DVLD.UI
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListTestTypes frm = new frmListTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void localLincenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateLocalDrivingLicenseApplication frm = new frmAddUpdateLocalDrivingLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListLocalDrivingLicesnseApplications frm = new frmListLocalDrivingLicesnseApplications();
             frm.ShowDialog();
         }
     }

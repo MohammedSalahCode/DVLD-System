@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD.UI.ApplicationTypes
+namespace DVLD.UI.Applications
 {
     public partial class frmEditApplicationType: Form
     {
