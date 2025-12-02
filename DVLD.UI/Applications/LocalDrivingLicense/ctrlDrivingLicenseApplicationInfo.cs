@@ -73,8 +73,7 @@ namespace DVLD.UI.Applications.LocalDrivingLicense
         {
             lblLocalDrivingLicenseApplicationID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
             lblAppliedFor.Text = clsLicenseClass.Find(_LocalDrivingLicenseApplication.LicenseClassID).ClassName;
-            int passedTests = 0; // TODO: replace with real data later
-            lblPassedTests.Text = $"{passedTests}/3";
+            lblPassedTests.Text = _LocalDrivingLicenseApplication.GetPassedTestCount().ToString() + "/3";
             ctrlApplicationBasicInfo1.LoadApplicationInfo(_LocalDrivingLicenseApplication.ApplicationID);
         }
     }

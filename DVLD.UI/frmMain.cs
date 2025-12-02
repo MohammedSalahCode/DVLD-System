@@ -79,5 +79,11 @@ namespace DVLD.UI
             frmListLocalDrivingLicesnseApplications frm = new frmListLocalDrivingLicesnseApplications();
             frm.ShowDialog();
         }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListLocalDrivingLicesnseApplications frm = new frmListLocalDrivingLicesnseApplications();
+            frm.ShowDialog();
+        }
     }
 }
