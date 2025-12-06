@@ -11,6 +11,7 @@ using DVLD.Classes;
 using DVLD.UI.Tests;
 using DVLD.UI.User;
 using DVLD.UI.Applications;
+using DVLD.UI.Drivers;
 
 
 namespace DVLD.UI
@@ -83,6 +84,12 @@ namespace DVLD.UI
         private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListLocalDrivingLicesnseApplications frm = new frmListLocalDrivingLicesnseApplications();
+            frm.ShowDialog();
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListDrivers frm = new frmListDrivers();
             frm.ShowDialog();
         }
     }

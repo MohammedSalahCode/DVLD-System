@@ -158,7 +158,7 @@ namespace DVLD.DataAccess
                             Values 
                                     (@ClassName,@ClassDescription,@MinimumAllowedAge, 
                                      @DefaultValidityLength,@ClassFees)
-                            where LicenseClassID = @LicenseClassID;
+
                             SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
