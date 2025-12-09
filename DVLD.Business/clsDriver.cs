@@ -83,6 +83,11 @@ namespace DVLD.Business
             return clsLicense.GetDriverLicenses(DriverID);
         }
 
+        public static DataTable GetInternationalLicenses(int DriverID)
+        {
+            return clsInternationalLicense.GetDriverInternationalLicenses(DriverID);
+        }
+
         public bool Save()
         {
             switch (Mode)

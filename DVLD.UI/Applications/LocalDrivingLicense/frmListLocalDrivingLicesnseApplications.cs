@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DVLD.Business;
 using DVLD.UI.Tests;
 using DVLD.UI.Licenses.LocalLicenses;
+using DVLD.UI.Licenses;
 
 namespace DVLD.UI.Applications
 {
@@ -285,10 +286,13 @@ namespace DVLD.UI.Applications
             }
         }
 
-        // TODO: Implement Person License History feature
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature not implemented yet.");
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+            clsLocalDrivingLicenseApplication localDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(localDrivingLicenseApplication.ApplicantPersonID);
+            frm.ShowDialog();
         }
     }
 }

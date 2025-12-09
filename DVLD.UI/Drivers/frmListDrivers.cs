@@ -1,4 +1,5 @@
 ﻿using DVLD.Business;
+using DVLD.UI.Licenses;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -109,10 +110,12 @@ namespace DVLD.UI.Drivers
             this.Close();
         }
 
-        // TODO: Implement Person License History feature
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature not implemented yet.");
+            int PersonID = (int)dgvDrivers.CurrentRow.Cells[1].Value;
+
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
+            frm.ShowDialog();
         }
     }
 }

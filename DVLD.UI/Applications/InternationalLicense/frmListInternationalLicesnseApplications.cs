@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using DVLD.UI.Licenses.InternationalLicenses;
+using DVLD.UI.Licenses;
 
 
 namespace DVLD.UI.Applications.InternationalLicense
@@ -175,10 +176,13 @@ namespace DVLD.UI.Applications.InternationalLicense
             lblRecordsCount.Text = dgvInternationalLicenses.Rows.Count.ToString();
         }
         
-        // TODO: Implement Person License History feature
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature not implemented yet.");
+            int DriverID = (int)dgvInternationalLicenses.CurrentRow.Cells[2].Value;
+            int PersonID = clsDriver.FindByDriverID(DriverID).PersonID;
+
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
+            frm.ShowDialog();
         }
     }
 }
