@@ -81,6 +81,15 @@ namespace DVLD.UI.Applications.ReplaceLostOrDamagedLicense
                 return;
             }
 
+            // Business Rule: License must not be detained
+            if (ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.IsDetained)
+            {
+                MessageBox.Show("License is detained."
+                    , "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnIssueReplacement.Enabled = false;
+                return;
+            }
+
             lblOldLicenseID.Text = SelectedLicenseID.ToString();
 
             btnIssueReplacement.Enabled = true;
