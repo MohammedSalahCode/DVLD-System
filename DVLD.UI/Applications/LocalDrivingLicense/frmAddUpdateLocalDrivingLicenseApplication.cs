@@ -48,7 +48,7 @@ namespace DVLD.UI.Applications
 
             if (_Mode == enMode.AddNew)
             {
-                lblTitle.Text = "New Local Driving License Application License";
+                lblTitle.Text = "New Local Driving License Application";
                 this.Text = "New Local Driving License Application";
 
                 _LocalDrivingLicenseApplication = new clsLocalDrivingLicenseApplication();

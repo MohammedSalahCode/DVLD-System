@@ -237,6 +237,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tests\Controls\crlScheduleTest.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -404,14 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Tests\Controls\crlScheduleTest.resx">
       <DependentUpon>crlScheduleTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -468,12 +468,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\People 64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\People 400.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Person 32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -516,9 +510,6 @@
     <None Include="Resources\Add Person 40.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\User.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\SearchPerson.png" />
   </ItemGroup>
   <ItemGroup>
@@ -549,15 +540,6 @@
     <None Include="Resources\password.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sign Out 32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Application Types 64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Application Types 512.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\edit 32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -565,12 +547,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\money 32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Test Types 64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Test Types 512.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\License Type 32.png" />
@@ -630,9 +606,6 @@
     <None Include="Resources\IssueDrivingLicense 32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Drivers main.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Question 32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -657,16 +630,7 @@
     <None Include="Resources\Driver License 48.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drivers 64.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\people.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\application 64.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\users 64.png" />
@@ -687,9 +651,6 @@
     <None Include="Resources\Release Detained 64.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\detain 64.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\detain 32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -697,6 +658,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\detain 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\App types 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test type 256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\App setting 256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\detain 48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add New User 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drivers 256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\applications 24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people 24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drivers 24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users 24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings 24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,7 +38,7 @@ namespace DVLD.UI.User
                 dgvUsers.Columns[1].Width = 100;
 
                 dgvUsers.Columns[2].HeaderText = "Full Name";
-                dgvUsers.Columns[2].Width = 300;
+                dgvUsers.Columns[2].Width = 250;
 
                 dgvUsers.Columns[3].HeaderText = "UserName";
                 dgvUsers.Columns[3].Width = 100;

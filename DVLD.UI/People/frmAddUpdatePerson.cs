@@ -54,11 +54,13 @@ namespace DVLD.UI
             if (_Mode == enMode.AddNew)
             {
                 lblTitle.Text = "Add New Person";
+                this.Text = "Add New Person";
                 _Person = new clsPerson();
             }
             else
             {
                 lblTitle.Text = "Update Person";
+                this.Text = "Update Person";
             }
 
             // Default image based on gender
