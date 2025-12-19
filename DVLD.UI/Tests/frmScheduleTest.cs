@@ -1,16 +1,5 @@
 ﻿using DVLD.Business;
-using DVLD.Classes;
-using DVLD.UI.Properties;
-using DVLD.UI.Tests.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DVLD.UI.Tests

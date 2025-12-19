@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DVLD.DataAccess
+﻿namespace DVLD.DataAccess
 {
     class clsDataAccessSettings
     {

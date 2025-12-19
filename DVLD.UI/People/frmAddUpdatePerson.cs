@@ -2,18 +2,11 @@
 using DVLD.Classes;
 using DVLD.UI.Properties;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DVLD.UI.frmAddUpdatePerson;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD.UI
 {

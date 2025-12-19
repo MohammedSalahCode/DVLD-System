@@ -223,11 +223,11 @@
     <Compile Include="People\frmFindPerson.Designer.cs">
       <DependentUpon>frmFindPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\frmManagePeople.cs">
+    <Compile Include="People\frmListPeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\frmManagePeople.Designer.cs">
-      <DependentUpon>frmManagePeople.cs</DependentUpon>
+    <Compile Include="People\frmListPeople.Designer.cs">
+      <DependentUpon>frmListPeople.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmShowPersonInfo.cs">
       <SubType>Form</SubType>
@@ -242,12 +242,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Controls\crlScheduleTest.cs">
-      <SubType>UserControl</SubType>
+
+
+
+	
+
+    <Compile Include="Tests\Controls\ctrlScheduleTest.cs">
+        <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Tests\Controls\crlScheduleTest.Designer.cs">
-      <DependentUpon>crlScheduleTest.cs</DependentUpon>
+    <Compile Include="Tests\Controls\ctrlScheduleTest.Designer.cs">
+        <DependentUpon>ctrlScheduleTest.cs</DependentUpon>
     </Compile>
+
+
     <Compile Include="Tests\Controls\ctrlSecheduledTest.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -401,8 +408,8 @@
     <EmbeddedResource Include="People\frmFindPerson.resx">
       <DependentUpon>frmFindPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\frmManagePeople.resx">
-      <DependentUpon>frmManagePeople.cs</DependentUpon>
+    <EmbeddedResource Include="People\frmListPeople.resx">
+      <DependentUpon>frmListPeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmShowPersonInfo.resx">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
@@ -412,8 +419,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tests\Controls\crlScheduleTest.resx">
-      <DependentUpon>crlScheduleTest.cs</DependentUpon>
+    <EmbeddedResource Include="Tests\Controls\ctrlScheduleTest.resx">
+      <DependentUpon>ctrlScheduleTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tests\Controls\ctrlSecheduledTest.resx">
       <DependentUpon>ctrlSecheduledTest.cs</DependentUpon>

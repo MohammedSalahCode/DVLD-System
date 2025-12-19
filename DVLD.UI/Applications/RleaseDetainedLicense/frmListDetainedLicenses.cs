@@ -3,13 +3,8 @@ using DVLD.UI.Licenses;
 using DVLD.UI.Licenses.DetainLicense;
 using DVLD.UI.Licenses.LocalLicenses;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DVLD.UI.Applications.RleaseDetainedLicense

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD.Classes;
 using DVLD.UI.Tests;
@@ -46,7 +39,7 @@ namespace DVLD.UI
 
         private void btnPeople_Click(object sender, EventArgs e)
         {
-            Form frm = new frmManagePeople();
+            Form frm = new frmListPeople();
             frm.ShowDialog();
         }
 

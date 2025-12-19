@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
-using static System.Net.Mime.MediaTypeNames;
-using System.Xml.Linq;
 
 namespace DVLD.DataAccess
 {
