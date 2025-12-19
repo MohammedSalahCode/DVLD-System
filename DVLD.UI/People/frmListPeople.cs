@@ -1,19 +1,11 @@
 ﻿using DVLD.Business;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD.UI
 {
-    public partial class frmManagePeople: Form
+    public partial class frmListPeople: Form
     {
         private static DataTable _dtAllPeople = clsPerson.GetAllPeople();
 
@@ -22,7 +14,7 @@ namespace DVLD.UI
                                                  "Gender", "DateOfBirth", "CountryName",
                                                  "Phone", "Email");
 
-        public frmManagePeople()
+        public frmListPeople()
         {
             InitializeComponent();
         }
@@ -196,18 +188,6 @@ namespace DVLD.UI
             //allow number incase person id is selected.
             if (cbFilterBy.Text == "Person ID")
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void tsmSendEmail_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This Feature Is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-        }
-
-        private void tsmPhoneCall_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This Feature Is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
         }
     }
 }

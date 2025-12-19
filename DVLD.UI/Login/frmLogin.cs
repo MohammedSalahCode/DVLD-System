@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD.Business;
 using DVLD.Classes;
@@ -20,7 +13,7 @@ namespace DVLD.UI
         {
             InitializeComponent();
         }
-        //done
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             clsUser user = clsUser.FindByUsernameAndPassword(txtUserName.Text.Trim(), txtPassword.Text.Trim());
@@ -56,7 +49,7 @@ namespace DVLD.UI
                 MessageBox.Show("Invalid username or password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //done
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
             string UserName = "", Password = "";

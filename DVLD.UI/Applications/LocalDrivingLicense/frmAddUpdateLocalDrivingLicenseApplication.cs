@@ -3,7 +3,6 @@ using System.Data;
 using System.Windows.Forms;
 using DVLD.Business;
 using DVLD.Classes;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD.UI.Applications
 {

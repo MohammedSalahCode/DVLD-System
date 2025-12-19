@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD.Business;
 using DVLD.UI.Properties;
-using static DVLD.Business.clsTestType;
 using DVLD.Classes;
 
 namespace DVLD.UI.Tests.Controls
 {
-    public partial class crlScheduleTest: UserControl
+    public partial class ctrlScheduleTest: UserControl
     {
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode = enMode.AddNew;
@@ -62,7 +54,7 @@ namespace DVLD.UI.Tests.Controls
             }
         }
 
-        public crlScheduleTest()
+        public ctrlScheduleTest()
         {
             InitializeComponent();
         }
