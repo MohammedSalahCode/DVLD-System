@@ -67,6 +67,12 @@ This document tracks skills gained almost daily during the development of the DV
 - **[Throughout the project]** – Used **Visual Studio** to structure multi-layer solutions clearly, improving readability and maintainability.
 - **[Throughout the project]** – Practiced **Git & GitHub** for version control, maintaining structured commits and applying a feature-based development workflow.
 
+## Security
+
+- **[2025-12-21]** – Learned the risks of hardcoding connection strings and sensitive credentials.
+- **[2025-12-21]** – Refactored `clsDataAccessSettings` class to read connection strings from **App.config** for improved security and maintainability.
+
+ 
 ## Project Delivery & Workflow
 
 - **[2025-12-20]** – Completed the full project delivery cycle:  
