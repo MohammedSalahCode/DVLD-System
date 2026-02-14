@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -242,19 +245,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-
-
-
-	
-
     <Compile Include="Tests\Controls\ctrlScheduleTest.cs">
-        <SubType>UserControl</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Tests\Controls\ctrlScheduleTest.Designer.cs">
-        <DependentUpon>ctrlScheduleTest.cs</DependentUpon>
+      <DependentUpon>ctrlScheduleTest.cs</DependentUpon>
     </Compile>
-
-
     <Compile Include="Tests\Controls\ctrlSecheduledTest.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -455,6 +451,7 @@
     <EmbeddedResource Include="User\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
