@@ -470,6 +470,10 @@
       <Project>{ea38596d-e4f5-445e-bbac-8380972a17d5}</Project>
       <Name>DVLD.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DVLD.Utilities\DVLD.Utilities.csproj">
+      <Project>{f0fc243d-e9f0-4089-92f5-a1c7491812c1}</Project>
+      <Name>DVLD.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Person 32.png" />

@@ -2,6 +2,8 @@
 using System.IO;
 using System.Windows.Forms;
 using DVLD.Business;
+using DVLD.Utilities;
+using Microsoft.Win32;
 
 namespace DVLD.Classes
 {
@@ -9,6 +11,7 @@ namespace DVLD.Classes
     {
         public static clsUser CurrentUser;
 
+        [Obsolete("This method is deprecated. Use RememberCredentials instead.")]
         public static bool RememberUsernameAndPassword(string Username, string Password)
         {
 
@@ -46,6 +49,7 @@ namespace DVLD.Classes
 
         }
 
+        [Obsolete("This method is deprecated. Use LoadStoredCredentials instead.")]
         public static bool GetStoredCredential(ref string Username, ref string Password)
         {
 
@@ -87,6 +91,21 @@ namespace DVLD.Classes
                 return false;
             }
 
+        }
+
+
+        public static bool RememberCredentials(string Username, string Password)
+        {
+            return clsRegistryHandler.SetValue("UserName", Username) &&
+                   clsRegistryHandler.SetValue("Password", Password);
+        }
+
+        public static bool LoadStoredCredentials(ref string Username, ref string Password)
+        {
+            Username = clsRegistryHandler.GetValue("UserName");
+            Password = clsRegistryHandler.GetValue("Password");
+
+            return !string.IsNullOrEmpty(Username);
         }
     }
 }
