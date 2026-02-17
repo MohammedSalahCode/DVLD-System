@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.Utilities;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -47,7 +48,7 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
                 isFound = false;
             }
             finally
@@ -101,7 +102,7 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
             }
             finally
             {
@@ -150,7 +151,7 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
                 return false;
             }
             finally
@@ -190,7 +191,7 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
             }
             finally
             {
@@ -229,7 +230,7 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
             }
             finally
             {
@@ -270,7 +271,7 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
             }
             finally
             {
