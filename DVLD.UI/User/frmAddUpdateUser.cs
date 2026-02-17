@@ -1,4 +1,5 @@
 ﻿using DVLD.Business;
+using DVLD.Utilities;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -72,8 +73,8 @@ namespace DVLD.UI.User
 
             lblUserID.Text = _User.UserID.ToString();
             textUserName.Text = _User.UserName;
-            textPassword.Text = _User.Password;
-            textConfirmPassword.Text = _User.Password;
+            textPassword.Text = "";
+            textConfirmPassword.Text = "";
             chkIsActive.Checked = _User.IsActive;
             ctrlPersonCardWithFilter1.LoadPersonInfo(_User.PersonID);
         }
@@ -97,9 +98,13 @@ namespace DVLD.UI.User
 
             }
 
+            if (_Mode == enMode.Update)
+                _User.Password = clsHashing.ComputeHash(textPassword.Text.Trim());
+            else
+                _User.Password = textPassword.Text.Trim();
+
             _User.PersonID = ctrlPersonCardWithFilter1.PersonID;
             _User.UserName = textUserName.Text.Trim();
-            _User.Password = textPassword.Text.Trim();
             _User.IsActive = chkIsActive.Checked;
 
 

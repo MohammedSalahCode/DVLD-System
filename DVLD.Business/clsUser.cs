@@ -1,4 +1,5 @@
 ﻿using DVLD.DataAccess;
+using DVLD.Utilities;
 using System.Data;
 
 namespace DVLD.Business
@@ -39,7 +40,7 @@ namespace DVLD.Business
 
         private bool _AddNewUser()
         {
-            //call DataAccess Layer 
+            this.Password = clsHashing.ComputeHash(this.Password);
 
             this.UserID = clsUserData.AddNewUser(this.UserName, this.Password, this.IsActive, this.PersonID);
 
@@ -81,17 +82,19 @@ namespace DVLD.Business
                 return null;
         }
 
-        public static clsUser FindByUsernameAndPassword(string UserName, string Password)
+        public static clsUser FindByUsernameAndPassword(string UserName, string plainPassword)
         {
+            string HashedPassword = clsHashing.ComputeHash(plainPassword);
+
             int UserID = -1;
             int PersonID = -1;
             bool IsActive = false;
 
             //call DAL
-            bool IsFound = clsUserData.GetUserInfoByUsernameAndPassword(UserName, Password, ref UserID, ref IsActive, ref PersonID);
+            bool IsFound = clsUserData.GetUserInfoByUsernameAndPassword(UserName, HashedPassword, ref UserID, ref IsActive, ref PersonID);
 
             if (IsFound)
-                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+                return new clsUser(UserID, PersonID, UserName, HashedPassword, IsActive);
             else
                 return null;
         }
