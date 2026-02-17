@@ -23,9 +23,9 @@ namespace DVLD.UI
 
                 // Save or clear credentials based on "Remember Me" checkbox
                 if (chkRememberMe.Checked)
-                    clsGlobal.RememberUsernameAndPassword(txtUserName.Text.Trim(), txtPassword.Text.Trim());
+                    clsGlobal.RememberCredentials(txtUserName.Text.Trim(), txtPassword.Text.Trim());
                 else
-                    clsGlobal.RememberUsernameAndPassword("", "");
+                    clsGlobal.RememberCredentials("", "");
 
 
                 // Check if the user account is inactive
@@ -54,7 +54,7 @@ namespace DVLD.UI
         {
             string UserName = "", Password = "";
 
-            if (clsGlobal.GetStoredCredential(ref UserName, ref Password))
+            if (clsGlobal.LoadStoredCredentials(ref UserName, ref Password))
             {
                 txtUserName.Text = UserName;
                 txtPassword.Text = Password;

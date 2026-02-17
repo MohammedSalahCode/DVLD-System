@@ -1,4 +1,5 @@
 ﻿using DVLD.Business;
+using DVLD.Utilities;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -55,7 +56,7 @@ namespace DVLD.UI.User
                 return;
             }
 
-            _User.Password = textNewPassword.Text;
+            _User.Password = clsHashing.ComputeHash(textNewPassword.Text);
 
             if (_User.Save())
             {
@@ -84,8 +85,9 @@ namespace DVLD.UI.User
                 errorProvider1.SetError(textCurrentPassword, null);
             }
 
+            string hashedInput = clsHashing.ComputeHash(textCurrentPassword.Text.Trim());
 
-            if (_User.Password != textCurrentPassword.Text.Trim())
+            if (_User.Password != hashedInput)
             {
                 e.Cancel = true;
                 errorProvider1.SetError(textCurrentPassword, "Current Password is wrong!");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
+using DVLD.Utilities;
 
 namespace DVLD.DataAccess
 {
@@ -45,7 +46,7 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
                 isFound = false;
             }
             finally
@@ -94,7 +95,7 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
                 isFound = false;
             }
             finally
@@ -130,10 +131,9 @@ namespace DVLD.DataAccess
                 reader.Close();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
             }
             finally
             {
@@ -178,12 +178,10 @@ namespace DVLD.DataAccess
                     LicenseClassID = insertedID;
                 }
             }
-
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
             }
-
             finally
             {
                 connection.Close();
@@ -225,10 +223,9 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling placeholder
+                clsLogger.LogError("DAL Error: " + ex.Message, ex);
                 return false;
             }
-
             finally
             {
                 connection.Close();
